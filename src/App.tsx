@@ -3,7 +3,14 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Index from "./pages/Index";
+import Clientes from "./pages/Clientes";
+import Estoque from "./pages/Estoque";
+import Financeiro from "./pages/Financeiro";
+import Fornecedores from "./pages/Fornecedores";
+import Kanban from "./pages/Kanban";
+import Integracoes from "./pages/Integracoes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,6 +23,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/clientes" element={<Layout><Clientes /></Layout>} />
+          <Route path="/estoque" element={<Layout><Estoque /></Layout>} />
+          <Route path="/financeiro" element={<Layout><Financeiro /></Layout>} />
+          <Route path="/fornecedores" element={<Layout><Fornecedores /></Layout>} />
+          <Route path="/kanban" element={<Layout><Kanban /></Layout>} />
+          <Route path="/integracoes" element={<Layout><Integracoes /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
